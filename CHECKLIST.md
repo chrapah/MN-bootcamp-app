@@ -34,4 +34,8 @@ Date: 5th November 2026
 ## 4. SonarQube for IDE warnings I saw in app.js
 This framework implicitly discloses version information by default.Make sure it is safe here
 
+Improper input validation exposed sensitive data /information from the database to an unauthorised user/client 
+
+Solution: Propere input validation (by design) to prevent unauthorised data exposure. 
+
 ## 
