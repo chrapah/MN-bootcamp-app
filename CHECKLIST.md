@@ -1,0 +1,37 @@
+# Secure Development Checklist
+
+Name: NELLY
+Date: 5th November 2026
+
+## 1. Pipeline map
+
+| Stage | Security activity | Example tool | Gate (what blocks progress) |
+| --- | --- | --- | --- |
+| Plan | Write security requirements and assess risk | Checklist, gap analysis | Requirements approved |
+| Design | Threat modelling | STRIDE | Top threats have countermeasures |
+| Code | Scan while you type and peer review | SonarQube for IDE, Snyk IDE plugin | No hard-coded secrets, pull request reviewed |
+| Build | SAST, SCA and secrets scan | Snyk, Dependency-Check | No new High or Critical findings |
+| Test | Security tests and DAST | OWASP ZAP, penetration test | No open High findings |
+| Deploy | Harden configuration and protect secrets | Security headers, secrets manager | Configuration checklist signed off |
+| Operate | Monitor, patch and audit | Dependabot, logs, scheduled scans | Critical patches within agreed time |
+
+## 2. My own additions (one more security activity for each stage)
+
+- Plan: Define data classification and decide which data needs encryption or stricter access control.
+- Design: Review authentication and session management design for common flaws (e.g. weak session handling ) 
+- Code: Run secret scanning in the IDE before committing to catch API keys and passwords early.
+- Build: Generate and store an SBOM (Software Bill of Materials) for every build.
+- Test: Include abuse-case and negative testing (e.g. broken access control, injection attempts).
+- Deploy: Enforce HTTPS only and set secure security headers (HSTS, CSP, etc.).
+- Operate: Subscribe to security advisories for all third-party components and review them weekly.
+
+## 3. My pass or fail rules for three gates
+
+1. Gate: Build. Rule: the build fails if Snyk reports any High or Critical issue.
+2. Gate:
+3. Gate:
+
+## 4. SonarQube for IDE warnings I saw in app.js
+This framework implicitly discloses version information by default.Make sure it is safe here
+
+## 
